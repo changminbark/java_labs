@@ -1,4 +1,23 @@
-# csci205_labs
+# CSCI 205 - Software Engineering and Design
+
+Bucknell University
+Lewisburg, PA, USA
+
+## Project: csci205_labs
+
+## Course Information
+
+Instructor: Joshua Stough
+Semester: Fall 2023
+Section: 2 (10 AM)
+
+## Repository Info
+
+CSCI 205 Lab work
+
+## About me
+
+I am a Korean born and raise in Indonesia. I like playing badminton and listening to electronic music. I want to be a successful entrepreneur after I graduate.
 
 
 
