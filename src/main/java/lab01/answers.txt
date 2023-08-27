@@ -1,0 +1,28 @@
+/* *****************************************
+* CSCI205 - Software Engineering and Design
+* Fall 2023
+* Instructor: Professor Stough
+* Section: 02 10AM
+* Lab Section: 10AM
+*
+* Name: Chang Min Bark
+* Date: xx/xx/2023
+*
+* Lab / Assignment:
+*
+* Description:
+*
+* *****************************************/
+
+2.1 - "Prints a String and then terminate the line. This method behaves as though it invokes print(String) and then println()."
+The method calls the print(String) method and the println() method.
+
+2.2 - The object "in" represents the "standard" input stream. The type is InputStream.
+
+2.3 - The code would look like below:
+
+String osName = System.getProperty("os.name");
+System.out.println(osName);
+
+2.4 - Method overloading is when you have several methods with the same name but take in different parameters.
+This is to increase the readability and flexibility of the program.
