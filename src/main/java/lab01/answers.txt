@@ -26,3 +26,11 @@ System.out.println(osName);
 
 2.4 - Method overloading is when you have several methods with the same name but take in different parameters.
 This is to increase the readability and flexibility of the program.
+
+2.5 - No, the nanoTime() method cannot report the wall-clock time.
+
+2.6 - The package of Scanner class is java.util
+
+2.7 - Yes, you need to explicitly import java.util.Scanner to use it in your program.
+
+2.8 - The sin method takes in radians.
