@@ -21,8 +21,9 @@ import java.util.Scanner;
 
 public class Hello
 {
+    private static Scanner scnr;
     public static void main( String[] args ){
-        Scanner scnr = new Scanner(System.in);
+        scnr = new Scanner(System.in);
         System.out.println("What is your name?");
         String userName = scnr.next();
         // These assigns the operating system's properties to string variables.
