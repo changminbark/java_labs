@@ -6,11 +6,11 @@
 * Lab Section: 10AM
 *
 * Name: Chang Min Bark
-* Date: xx/xx/2023
+* Date: 08/30/2023
 *
-* Lab / Assignment:
+* Lab / Assignment: lab01
 *
-* Description:
+* Description: This covers CircleCalc and Hello.java. Basically, we learn how to use the Java API and construction helper methods.
 *
 * *****************************************/
 
