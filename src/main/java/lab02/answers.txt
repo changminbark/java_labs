@@ -1,0 +1,29 @@
+/* *****************************************
+* CSCI205 - Software Engineering and Design
+* Fall 2023
+* Instructor: Professor Stough
+* Section: 02 10AM
+* Lab Section: 10AM
+*
+* Name: Chang Min Bark
+* Date: 08/30/2023
+*
+* Lab / Assignment: lab02
+*
+* Description: We learn about types, including Java wrapper types. We also work with BigInt as well as computational performance based on design.
+*
+* *****************************************/
+
+
+1.1 - Results from exercise 1:
+Primitive: 
+Answer = 49999995000000. Time = 6327700
+
+Wrapped:
+Answer = 49999995000000. Time = 72658400
+
+Primitive types used 8.7% of the time of wrapper objects.
+
+1.2 - I think that there is a difference in time between primitive types and wrapper types because wrappers need to
+box and unbox the primitive data type within the wrapper. The wrapper needs to conver the primitive data type into a
+reference of class and type of the wrapper.
