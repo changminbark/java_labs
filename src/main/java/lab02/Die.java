@@ -69,6 +69,7 @@ public class Die {
     //  Scanner object
     private static Scanner scnr;
 
+    // MAIN FUNCTION
     public static void main(String[] args) {
         Die die1 = new Die();
         Die die2 = new Die();
@@ -91,6 +92,8 @@ public class Die {
 
         // Calculate percentage of successful rolls
         double percentOfRolls = (successfulRolls / 1.0) / NUMBER_OF_ROLLS * 100;
+
+        // Decimal format for 3 decimal places
         DecimalFormat numFormat = new DecimalFormat("#.000");
 
         // Output message
@@ -125,14 +128,13 @@ public class Die {
     }
 
     public static int simulateRolls(Die firstDie, Die secondDie, int targetSum){
-        // Initialize return value, start time, and spread
+        // Initialize return value
         int ans = 0;
-        int spread = MAX_FACE_VALUE - MIN_FACE_VALUE + 1;
 
         for (int i = 0; i < NUMBER_OF_ROLLS; i++) {
-        // Find values of roll
-            firstDie.valueOfLastRoll = Die.rng.nextInt(spread) + MIN_FACE_VALUE;
-            secondDie.valueOfLastRoll = Die.rng.nextInt(spread) + MIN_FACE_VALUE;
+        // Roll dice and find values of roll
+            firstDie.roll();
+            secondDie.roll();
             if (firstDie.valueOfLastRoll + secondDie.valueOfLastRoll == targetSum){
                 ans++;
             }
