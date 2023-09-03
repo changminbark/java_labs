@@ -16,7 +16,9 @@
 
 package lab02;
 
+import java.text.DecimalFormat;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Die {
     /** The minimum face value for our die */
@@ -24,6 +26,9 @@ public class Die {
 
     /** The maximum face value for our die */
     public static final int MAX_FACE_VALUE = 6;
+
+    /** The number of times we want to roll for double dice */
+    public static final int NUMBER_OF_ROLLS = 1000000;
 
     /** A reference to a random number generator to simulate rolling a die */
     private static Random rng = new Random(1234);
@@ -61,14 +66,79 @@ public class Die {
      * @params args - program arguments (not used)
      */
 
-     public static void main(String[] args) {
-        Die die = new Die();
+    //  Scanner object
+    private static Scanner scnr;
 
-        // Roll the die and print it to the display
-        die.roll();
-        System.out.println("I rolled: " + die);
+    public static void main(String[] args) {
+        Die die1 = new Die();
+        Die die2 = new Die();
+        scnr = new Scanner(System.in);
 
-        System.out.println("Goodbye!");
-     }
+        // Welcome message
+        System.out.println("Welcome to the dice simulator!");
+        System.out.println("I'm going to roll 2 dice 1000000 times");
+
+        // Get and check input from user.
+        int diceSum = getDiceSumFromUser();
+
+        // Get number of successful rolls that match diceSum
+        double startTime = System.nanoTime()/1000000.0;
+        int successfulRolls = simulateRolls(die1, die2, diceSum);
+        double endTime = System.nanoTime()/1000000.0;
+
+        // Calculate duration of time it took
+        double duration = endTime - startTime;
+
+        // Calculate percentage of successful rolls
+        double percentOfRolls = (successfulRolls / 1.0) / NUMBER_OF_ROLLS * 100;
+        DecimalFormat numFormat = new DecimalFormat("#.000");
+
+        // Output message
+        System.out.println("The roll value " + diceSum + " appeared " + successfulRolls + " times, or " + numFormat.format(percentOfRolls) + "% of all rolls.");
+        System.out.println(NUMBER_OF_ROLLS + " rolls took " + numFormat.format(duration) + " ms.");
+        System.out.println("Goodbye"); 
+    }
+
+    public static int getDiceSumFromUser(){
+        int sum = -1;
+        while (sum < 2 || sum > 12){
+            System.out.println("What dice sum do you want to check for?");
+            // Checks if scanner input is int
+            if (!scnr.hasNextInt()){
+                System.out.println("ERROR: Please enter a number!");
+            }
+            else {
+                sum = scnr.nextInt();
+                // Checks if scanner input is at least 2
+                if (sum < 2) {
+                    System.out.println("ERROR: Please enter an integer that is at least 2.");
+                }
+                // Checks if scanenr input is at most 12
+                else if (sum > 12) {
+                    System.out.println("ERROR: Please enter an integer that is at most 12.");
+                }
+            }
+        // Refreshes the scanner's input buffer
+        scnr.nextLine();
+    }
+        return sum;
+    }
+
+    public static int simulateRolls(Die firstDie, Die secondDie, int targetSum){
+        // Initialize return value, start time, and spread
+        int ans = 0;
+        int spread = MAX_FACE_VALUE - MIN_FACE_VALUE + 1;
+
+        for (int i = 0; i < NUMBER_OF_ROLLS; i++) {
+        // Find values of roll
+            firstDie.valueOfLastRoll = Die.rng.nextInt(spread) + MIN_FACE_VALUE;
+            secondDie.valueOfLastRoll = Die.rng.nextInt(spread) + MIN_FACE_VALUE;
+            if (firstDie.valueOfLastRoll + secondDie.valueOfLastRoll == targetSum){
+                ans++;
+            }
+        }
+
+        return ans;
+    }
 
 }
