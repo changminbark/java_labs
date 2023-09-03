@@ -27,3 +27,30 @@ Primitive types used 8.7% of the time of wrapper objects.
 1.2 - I think that there is a difference in time between primitive types and wrapper types because wrappers need to
 box and unbox the primitive data type within the wrapper. The wrapper needs to conver the primitive data type into a
 reference of class and type of the wrapper.
+
+4.1 -
+20th:
+Recursive fib: 6765 Time: 0.2651 ms
+Non-recursive fib: 6765 Time: 0.0015 ms
+Non-recursive fib with BigInteger: 6765 Time: 0.2474 ms
+
+30th:
+Recursive fib: 832040 Time: 4.3987 ms
+Non-recursive fib: 832040 Time: 0.0091 ms
+Non-recursive fib with BigInteger: 832040 Time: 0.2546 ms
+
+40th:
+Recursive fib: 102334155 Time: 452.6226 ms
+Non-recursive fib: 102334155 Time: 0.0124 ms
+Non-recursive fib with BigInteger: 102334155 Time: 0.2472 ms
+
+100th: 
+Recursive fib: COULD NOT COMPUTE
+Non-recursive fib: -980107325 Time: 0.0034 ms
+Non-recursive fib with BigInteger: 354224848179261915075 Time: 0.2037 ms
+
+4.2 -
+The recursive function is much more computationally expensive than the non-recursive function as it has to repeat itself multiple times.
+It has to keep on calculating the sums of the past fibonacci numbers until it reaches 0 and 1. With the non-recursive function, it does not
+need to recalculate past numbers. It memorizes and store the smaller fibonacci numbers and uses it to calculate the next value, much like
+how humans calculate fibonacci numbers (bottom-up approach with memorization).
