@@ -62,28 +62,38 @@ public class ArrayChallenge {
      * @return the reverse of a
      */
     public static int[] recReverse(int[] a) {
+        // APPARENTLY THIS SOLUTION WORKS BUT IS NOT COMPATIBLE WITH TESTING CODE AS IT DOES NOT RETURN A NEW ARRAY
+        // // Base case
+        // if (a.length == 2) {
+        //     int temp = a[0];
+        //     a[0] = a[1];
+        //     a[1] = temp;
+        // }
+        // else if (a.length == 1) {
+        //     ;
+        // // Recursive case
+        // } else {
+        //     int temp = a[0];
+        //     a[0] = a[a.length - 1];
+        //     a[a.length - 1] = temp;
+        //     if (a.length > 2){
+        //         int[] b = subArray(a, 1, a.length - 1);
+        //         recReverse(b); 
+        //         for (int i = 0; i < b.length; i++){
+        //             a[i+1] = b[i];
+        //         }
+        //     }
+        // }
+        // return a;
+        
         // Base case
-        if (a.length == 2) {
-            int temp = a[0];
-            a[0] = a[1];
-            a[1] = temp;
-        }
-        else if (a.length == 1) {
-            ;
+        if (a.length == 0){
+            return a;
+        } 
         // Recursive case
-        } else {
-            int temp = a[0];
-            a[0] = a[a.length - 1];
-            a[a.length - 1] = temp;
-            if (a.length > 2){
-                int[] b = subArray(a, 1, a.length - 1);
-                recReverse(b); 
-                for (int i = 0; i < b.length; i++){
-                    a[i+1] = b[i];
-                }
-            }
+        else {
+            return concat(subArray(a, a.length - 1, a.length), recReverse(subArray(a, 0, a.length - 1)));
         }
-        return a;
     }
     
     /**
@@ -98,7 +108,15 @@ public class ArrayChallenge {
      */
     public static int altSum(int[] a) {
         // TODO - FINISH ME!
-        return Integer.MIN_VALUE;
+        int result = 0;
+        for (int i = 0; i < a.length; i++){
+            if (i % 2 == 0){
+                result += a[i];
+            } else {
+                result -= a[i];
+            }
+        }
+        return result;
     }
     
     /**
@@ -110,7 +128,12 @@ public class ArrayChallenge {
      */
     public static boolean isSorted(int[] a) {
         // TODO - FINISH ME!
-        return false;
+        for (int i = 0; i < a.length - 1; i++) {
+            if (a[i] > a[i + 1]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -120,6 +143,13 @@ public class ArrayChallenge {
      */
     public static boolean hasDuplicateValues(int[] a) {
         // TODO - FINISH ME!
+        for (int i = 0; i < a.length; i++){
+            for (int j = i + 1; j < a.length; j++){
+                if (a[i] == a[j]){
+                    return true;
+                }
+            }
+        }
         return false;
     }    
 
