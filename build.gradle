@@ -46,7 +46,7 @@ dependencies {
 
 application {
     mainModule = "csci205_labs"
-    mainClassName = "lab02.Die"
+    mainClassName = "lab03.Calculator"
     
     if (project.hasProperty("mainClass")) {
         getMainClass().set(project.getProperty("mainClass"))
