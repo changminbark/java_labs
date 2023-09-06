@@ -1,4 +1,18 @@
-/* PLACE YOUR BANNER HERE! */
+/* *****************************************
+* CSCI205 - Software Engineering and Design
+* Fall 2023
+* Instructor: Professor Stough
+* Section: 02 10AM
+* Lab Section: 10AM
+*
+* Name: Chang Min Bark
+* Date: 09/04/2023
+*
+* Lab / Assignment: lab03
+*
+* Description: Array exercises
+*
+* *****************************************/
 package lab03;
 
 import java.util.Arrays;

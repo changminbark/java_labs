@@ -6,7 +6,7 @@
 * Lab Section: 10AM
 *
 * Name: Chang Min Bark
-* Date: 09/x04/2023
+* Date: 09/04/2023
 *
 * Lab / Assignment: lab03
 *
