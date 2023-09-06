@@ -61,18 +61,56 @@ public class Skewness {
         scnr = new Scanner(System.in);
         // Getting input from user
         getNumAndSkew();
+
+        // Generate Skewed Data
         double[] output = generateSkewedData(inputNum, skew);
+
+        // Sorting array in ascending order (needed for finding median)
         Arrays.sort(output);
 
         // Calculates the mean
+        double avg = calculateMean(output);
+
+        // Calculates the median
+        double med = calculateMedian(output);
+        
+        // Calculates observed skew
+        SkewType skewOutput = skewType(avg, med);
+
+        // Final System output
+        System.out.println("mean: " + avg);
+        System.out.println("median: " + med);
+        switch(skewOutput) {
+            case SKEW_LEFT:
+                System.out.println("Observed skew: " + "LEFT");
+                break;
+            case SKEW_RIGHT:
+                System.out.println("Observed skew: " + "RIGHT");
+                break;
+            case SKEW_NONE:
+                System.out.println("Observed skew: " + "NONE");
+                break;
+        }
+
+
+
+
+
+    }
+
+    private static double calculateMean(double[] output) {
         double sum = 0;
+        // Adding up all the values
         for (int i = 0; i < output.length; i++){
             sum += output[i];
         }
+        // Dividing the sum by the total number of items in the output
         double avg = sum/output.length;
+        return avg;
+    }
 
-        // Calculates the median
-        double med = 0;
+    private static double calculateMedian(double[] output) {
+        double med;
         // If array has even number of items
         if (output.length % 2 == 0){
             int smallerIdx = output.length / 2 - 1;
@@ -84,30 +122,22 @@ public class Skewness {
             int midIdx = output.length / 2;
             med = output[midIdx];
         }
-        
-        
-        // Calculates observed skew
-        String skewOutput = "";
+        return med;
+    }
+
+    // Determines what the skew type of the data is
+    private static SkewType skewType(double avg, double med) {
+        // This is the mathematical expression where the difference of the mean and median is greater than 1% of the mean.
         if (Math.abs(avg - med) > 0.01 * avg){
             if (avg > med){
-                skewOutput = "RIGHT";
+                return SkewType.SKEW_RIGHT;
             }
             else {
-                skewOutput = "LEFT";
+                return SkewType.SKEW_LEFT;
             }
         } else {
-            skewOutput = "NONE";
+            return SkewType.SKEW_NONE;
         }
-
-        // Final System output
-        System.out.println("mean: " + avg);
-        System.out.println("median: " + med);
-        System.out.println("Observed skew: " + skewOutput);
-
-
-
-
-
     }
 
 
