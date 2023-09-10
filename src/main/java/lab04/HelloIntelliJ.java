@@ -32,7 +32,9 @@ public class HelloIntelliJ {
     private static String sFullName;
 
     /**
-     * Our main program
+     * A simple program to ask the user for their name and do some
+     * basic analysis with it
+     *
      * @param args command line arguments (not used)
      */
     public static void main(String[] args) {
