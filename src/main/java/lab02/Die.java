@@ -60,14 +60,16 @@ public class Die {
         return "" + this.valueOfLastRoll;
     }
 
-    /**
-     * A simple main program to test out a Die object
-     * 
-     * @params args - program arguments (not used)
-     */
+
 
     //  Scanner object
     private static Scanner scnr;
+
+    /**
+     * A simple main program to test out a Die object
+     *
+     * @param args - command line arguments (not used)
+     */
 
     // MAIN FUNCTION
     public static void main(String[] args) {

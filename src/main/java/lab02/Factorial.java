@@ -31,7 +31,7 @@ public class Factorial {
     /**
      * Recursive function to compute the factorial of a number with BigInteger
      * 
-     * @param args
+     * @param num Big integer that is calculated on
      */
     public static BigInteger facBigInteger(BigInteger num) {
         if (num.equals(BigInteger.ZERO)) {

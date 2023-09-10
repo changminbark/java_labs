@@ -78,8 +78,6 @@ public class Fibonacci {
      * Compute the nth fibonacci number non-recursively, using BigInteger.
      * 
      * @param n    - the nth number to find
-     * 
-     * @param args
      */
     public static BigInteger nonRecFibBigInteger(int n) {
 
