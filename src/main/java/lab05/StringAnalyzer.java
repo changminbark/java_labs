@@ -55,8 +55,9 @@ public class StringAnalyzer {
         // Check to see if this string is in our list of strings
         for (int i = 0; i < listOfStrings.size(); i++) {
             // If this string is already in our list, immediately return false. There's no point in continuing
-            if (listOfStrings.get(i) == str);
+            if (listOfStrings.get(i).equals(str)){
                 return false;
+            }
         }
 
         this.currentString = str;
@@ -72,7 +73,7 @@ public class StringAnalyzer {
      * @return the first repeated character or 0 if none found.
      */
     public char firstRepeatChar() {
-        for (int i = 0; i < currentString.length(); i++) {
+        for (int i = 0; i < currentString.length() - 1; i++) {
             char ch = currentString.charAt(i);
             if (ch == currentString.charAt(i + 1))
                 return ch;
@@ -88,15 +89,16 @@ public class StringAnalyzer {
      * @return the first multiple character, or 0 if none found
      */
     public char firstMultipleChar() {
-        for (int i = 0; i < currentString.length(); i++) {
+        for (int i = 0; i < currentString.length() - 1; i++) {
             char ch1 = currentString.charAt(i);
 
             // Check to see if this has a second occurrence
-            for (int j = i+1; j <= currentString.length(); j++) {
+            for (int j = i+1; j < currentString.length(); j++) {
                 char ch2 = currentString.charAt(j);
-                if (ch1 == ch2)
+                if (ch1 == ch2) {
                     // We have a second occurrence! Return it!
                     return ch1;
+                }
             }
         }
 
@@ -119,6 +121,20 @@ public class StringAnalyzer {
         int numFoundSoFar = 0;
 
         // TODO - Finish this method. Store result in arrayOfMultChars
+        // Checks for multiple characters
+        for (int i = 0; i < currentString.length() - 1; i++) {
+            char ch1 = currentString.charAt(i);
+
+            // Check to see if this has a second occurrence
+            for (int j = i+1; j < currentString.length(); j++) {
+                char ch2 = currentString.charAt(j);
+                if (ch1 == ch2 && !Arrays.asList(arrayOfMultChars).contains(ch1)) {
+                    // We have a second occurrence! Add it to the array of multiple characters
+                    arrayOfMultChars[numFoundSoFar] = ch1;
+                    numFoundSoFar++;
+                }
+            }
+        }
 
 
         // That's it! Let's copy this to an array of the correct size
