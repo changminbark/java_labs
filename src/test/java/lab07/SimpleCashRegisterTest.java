@@ -155,4 +155,25 @@ class SimpleCashRegisterTest {
         register.collectPayment(Money.PENNY, 82);
         assertDoesNotThrow(() -> register.giveChange());
     }
+
+    /**
+     * Tests whether two registers are equal or not
+     */
+    @Test
+    void testEquals() {
+        // Create two empty
+        SimpleCashRegister reg2 = new SimpleCashRegister();
+        assertEquals(register, reg2);
+
+        // Scan two items and check whether they are different
+        register.scanItem(1.00);
+        register.scanItem(2.00);
+        assertNotEquals(register, reg2);
+
+        // Scan same items in other register and checks whether they are equal
+        reg2.scanItem(1.00);
+        reg2.scanItem(2.00);
+        assertEquals(register, reg2);
+
+    }
 }

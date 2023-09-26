@@ -156,6 +156,22 @@ public class SimpleCashRegister {
         return change;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof SimpleCashRegister register))
+            return false;
+
+        SimpleCashRegister registerTest = (SimpleCashRegister) o;
+
+        if (Double.compare(registerTest.totalTransaction, register.totalTransaction) != 0)
+            return false;
+        if (Double.compare(registerTest.getPaymentCollected(), register.getPaymentCollected()) != 0)
+            return false;
+        return listOfItemPrices.equals(register.listOfItemPrices);
+    }
+
     public static void main(String[] args) {
         SimpleCashRegister myRegister = new SimpleCashRegister();
         myRegister.scanItem(0.55);
