@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SimpleCashRegisterTest {
     /**
-     * Delta constnat for checking floating point assertions
+     * Delta constant for checking floating point assertions
      */
     private static final double FLOAT_DELTA = 1.0E-12;
 
