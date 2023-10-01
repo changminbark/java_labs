@@ -2,7 +2,7 @@
  * CSCI205 - Software Engineering and Design
  * Fall 2023
  *
- * Name: YOUR NAME
+ * Name: Chang Min Bark
  * Date: 9/26/23
  * Time: 7:04 PM
  *

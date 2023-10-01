@@ -2,8 +2,8 @@
  * CSCI205 - Software Engineering and Design
  * Fall 2023
  *
- * TODO - Enter your name!
- * Name: TODO
+ *
+ * Name: Chang Min Bark
  *
  * Project: csci205
  * Package: lab08
