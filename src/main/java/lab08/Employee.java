@@ -24,9 +24,6 @@ import java.util.HashSet;
  */
 public class Employee {
 
-    /** Collection of unique Employee IDs generated or assigned */
-    private static HashSet<Integer> setOfAssignedIDs = new HashSet<>();
-
     /** Employee id */
     private int empID;
 
@@ -46,6 +43,41 @@ public class Employee {
     private double salary;
 
     /**
+     * A factory to generate unique employee IDs in a safe way
+     */
+    private static class IDFactory {
+
+        /** Collection of unique Employee IDs generated or assigned */
+        private static HashSet<Integer> setOfAssignedIDs = new HashSet<>();
+
+        /**
+         * Internal helper class method to generate a new ID that does not exist in our
+         * set of IDs
+         *
+         * @return a new ID as an {@link Integer}
+         */
+        private static Integer generateID() {
+            int i = 1;
+            while (setOfAssignedIDs.contains(i)) {
+                i += 1;
+            }
+            return Integer.valueOf(i);
+        }
+
+        /**
+         * Safe add <code>id</code> by making sure that id has not been used before. If it has, then
+         * find the first non-negative integer that has not been used, add it to the set
+         */
+        private static Integer safeToUse(Integer id) {
+            if (id <= 0 || setOfAssignedIDs.contains(id)) {
+                id = IDFactory.generateID();
+            }
+            setOfAssignedIDs.add(id);
+            return id;
+        }
+    }
+
+    /**
      * Explicit constructor to create new employee
      *
      * @param empID     Employee id
@@ -56,14 +88,7 @@ public class Employee {
      * @param salary    Current employee salary
      */
     public Employee(int empID, String firstName, String lastName, int ssNum, LocalDate hireDate, double salary) {
-        if (empID <= 0 || setOfAssignedIDs.contains(empID)) {
-            Integer genID = generateID();
-            setOfAssignedIDs.add(genID);
-            this.empID = genID;
-        } else {
-            this.empID = empID;
-            setOfAssignedIDs.add(empID);
-        }
+        this.empID = IDFactory.safeToUse(empID);
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssNum = ssNum;
@@ -127,20 +152,6 @@ public class Employee {
     public double raiseSalary(double salaryAdj) {
         this.salary += salaryAdj;
         return this.salary;
-    }
-
-    /**
-     * Internal helper class method to generate a new ID that does not exist in our
-     * set of IDs
-     *
-     * @return a new ID as an {@link Integer}
-     */
-    private static Integer generateID() {
-        int i = 1;
-        while (setOfAssignedIDs.contains(i)) {
-            i += 1;
-        }
-        return Integer.valueOf(i);
     }
 
     /**
