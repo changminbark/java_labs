@@ -22,7 +22,7 @@ import java.util.HashSet;
  *
  * @author Brian King
  */
-public class Employee {
+public class Employee implements Payable {
 
     /** Employee id */
     private int empID;
@@ -41,6 +41,36 @@ public class Employee {
 
     /** Current salary of the employee */
     private double salary;
+
+    /**
+     * @return who the payable person should be
+     */
+    @Override
+    public String getPayTo() {
+        return this.firstName + " " + this.lastName;
+    }
+
+    /**
+     * @return the string that will be on the check's memo
+     */
+    @Override
+    public String getPayMemo() {
+        return "Employee ID: " + this.empID + ", Pay Date: " + HRUtils.dateToStr(this.hireDate);
+    }
+
+    /**
+     * @param numHrs the number of hours worked by the person
+     * @return the number of dollars need to be paid to the person
+     */
+    @Override
+    public double calculatePay(double numHrs) {
+        // This is for overtime pay (at 1.5 rate) when person works over 40 hours a week
+        if (numHrs > 40) {
+            return 40 * (this.salary/(40*52)) + (numHrs - 40) * 1.5 * (this.salary/(40*52));
+        }
+        // Divide the salary by 40 hour per week for 52 weeks a year and multiply by numHrs to get total pay
+        return numHrs * (this.salary/(40*52));
+    }
 
     /**
      * A factory to generate unique employee IDs in a safe way

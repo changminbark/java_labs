@@ -16,6 +16,7 @@ package lab08;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -84,5 +85,23 @@ class EmployeeTest {
         assertEquals(100, emp1.getEmpID());
         assertEquals(101, emp2.getEmpID());
         assertNotEquals(101, emp3.getEmpID());
+    }
+
+    /**
+     * Tests whether the employee class properly implemented the Payable interface
+     */
+    @Test
+    @DisplayName("Payable - test regular and overtime pay")
+    void testPayable() {
+        // Test for getPayTo method
+        assertEquals(emp.getFirstName() + " " + emp.getLastName(), emp.getPayTo());
+        double wage = emp.getSalary() / 52 / 40;
+        double overtimeWage = wage * 1.5;
+
+        // Test for standard pay
+        assertEquals(wage * 30, emp.calculatePay(30), FLOAT_DELTA);
+
+        // Test for overtime pay
+        assertEquals(wage * 40 + overtimeWage * 10, emp.calculatePay(50), FLOAT_DELTA);
     }
 }
