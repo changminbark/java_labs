@@ -18,6 +18,8 @@
  */
 package lab08;
 
+import java.text.DecimalFormat;
+
 /**
  * An exception that is thrown when there is not enough funds to pay the person using the HRDBSystem.
  * The message thrown will show how much is being withdrawn and how much is available in the account.
@@ -29,6 +31,11 @@ class InsufficientFundsException extends Exception {
 }
 
 public class Account {
+
+    /**
+     * Decimal formatter
+     */
+    private static final DecimalFormat decfor = new DecimalFormat("0.00");
 
 
     /**
@@ -79,7 +86,7 @@ public class Account {
      */
     public void debit(double amount) throws InsufficientFundsException {
         if (this.balance < amount) {
-            throw new InsufficientFundsException((String.format("INSUFFICIENT FUNDS! Required: $%.2f, Available: $.2f", amount, this.balance)));
+            throw new InsufficientFundsException((String.format("INSUFFICIENT FUNDS! Required: $%.2f, Available: $%.2f", amount, this.balance)));
         }
         this.balance -= amount;
     }
@@ -114,7 +121,7 @@ public class Account {
         if (this.lastPayee == null) {
             return "";
         }
-        return "Pay to:      " + lastPayee.getPayTo() + "\n" + "Pay memo:      " + lastPayee.getPayMemo() + "\n" + "Amount:      " + this.lastAmountPaid;
+        return "Pay to:      " + lastPayee.getPayTo() + "\n" + "Pay memo:      " + lastPayee.getPayMemo() + "\n" + "Pay amount:      $" + decfor.format(this.lastAmountPaid) + "\n";
     }
 
     /**
@@ -123,7 +130,7 @@ public class Account {
      */
     @Override
     public String toString() {
-        return this.balance + "";
+        return "Account Balance: $" + decfor.format(this.balance) + "\n";
     }
 }
 
