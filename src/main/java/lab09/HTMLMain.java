@@ -41,6 +41,10 @@ public class HTMLMain {
 
     private static boolean isDone;
 
+    // ----------------------------------------------------------------------!!!
+    // NOTE THAT THE REPORT TAKES A BIT OF TIME TO WRITE, SO BE PATIENT!
+    // ----------------------------------------------------------------------!!!
+
     /**
      * The main method that runs the whole HTML parsing program
      * @param args - Default main parameters
