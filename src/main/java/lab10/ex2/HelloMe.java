@@ -18,6 +18,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.Formattable;
+
 public class HelloMe extends Application {
 
     /**
@@ -31,6 +33,8 @@ public class HelloMe extends Application {
     private Button btnHello;
     private Text textNameOutput;
     private DropShadow dropShadow;
+
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -85,7 +89,7 @@ public class HelloMe extends Application {
     }
 
     /**
-     * Initialize the styling of elements in stage
+     * Initialize the styling of elements in the scene graph
      */
     private void initStyling(){
         // Set text for name output
@@ -93,6 +97,7 @@ public class HelloMe extends Application {
         this.textNameOutput.setFont(Font.font("Arial", FontWeight.BOLD, 30));
         this.textNameOutput.setFill(Color.FUCHSIA);
         this.root.getChildren().add(this.textNameOutput);
+
         // Reflection effect for textNameOutput
         Reflection reflection = new Reflection();
         reflection.setFraction(0.9);
@@ -109,7 +114,7 @@ public class HelloMe extends Application {
     }
 
     /**
-     * Initialize event handlers for elements in stage
+     * Initialize event handlers for elements in the scene graph
      */
     private void initEventHandlers(){
         //Move the shadow around as the mouse moves

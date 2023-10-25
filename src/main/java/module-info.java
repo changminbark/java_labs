@@ -4,4 +4,5 @@ module csci205_labs {
 
     exports lab10.ex1;
     exports lab10.ex2;
+    exports lab10.ex3;
 }
