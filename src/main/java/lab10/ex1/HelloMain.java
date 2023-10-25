@@ -1,3 +1,22 @@
+/* *****************************************
+ * CSCI 205 - Software Engineering and Design
+ * Fall 2023
+ * Instructor: Prof. Joshua Stough
+ *
+ * Name: Chang Min Bark
+ * Section: 02
+ * Date: 10/24/2023
+ * Time: 6:00 PM
+ *
+ * Project: csci205_labs
+ * Package: lab10
+ * Class: HelloMain
+ *
+ * Description:
+ *
+ * ****************************************
+ */
+
 package lab10.ex1;
 
 import javafx.application.Application;
@@ -65,8 +84,6 @@ public class HelloMain extends Application {
             // System.out.println(ldt.format(formatter));
             lblTime.setText(ldt.format(formatter));
         });
-
-
 
     }
 }
