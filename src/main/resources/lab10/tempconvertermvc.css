@@ -1,0 +1,32 @@
+/*
+ * CSS file for our TempConverter MVC program
+ */
+
+.root {
+    -fx-pref-width: 300;
+    -fx-pref-height: 150;
+    -fx-padding: 15px;
+}
+
+#topPane {
+    -fx-orientation: horizontal;
+    -fx-alignment: center;
+    -fx-hgap: 10;
+}
+
+.text-field {
+    -fx-alignment: center;
+    -fx-pref-column-count: 5;
+}
+
+#lblResult {
+    -fx-pref-width: 75;
+    -fx-pref-height: 25;
+    -fx-border-style: solid;
+    -fx-border-radius: 4;
+    -fx-alignment: center;
+}
+
+VBox {
+    -fx-spacing: 10;
+}

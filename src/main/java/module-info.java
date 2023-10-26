@@ -6,4 +6,6 @@ module csci205_labs {
     exports lab10.ex2;
     exports lab10.ex3;
     exports lab10.ex4;
+    exports lab10.tempconvertermvc;
+    exports lab10.trafficlightmvc;
 }
